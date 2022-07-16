@@ -1,8 +1,3 @@
-volumes:
-  db_data: null
-  modules_server: null
-  modules_client: null
-
 services:
   app:
     image: nginx:${VER_NGINX}
@@ -44,7 +39,8 @@ services:
       - ./app/server:/usr/src/app
     env_file: .env
 
-  ## devtools
+  client:
+
   npm-ser:
     image: node:${VER_NODE}
     volumes:
@@ -52,9 +48,15 @@ services:
     env_file: .env
     working_dir: /usr/src/app
     entrypoint: [ 'npm' ]
+
   npm-cli:
     image: node:${VER_NODE}
     volumes:
       - ./app/client:/usr/src/app
     working_dir: /usr/src/app
     entrypoint: [ 'npm' ]
+
+volumes:
+  db_data: {}
+  modules_server: {}
+  modules_client: {}

@@ -1,6 +1,6 @@
 # Project ReactNode Challenge
 
-El trabajo consiste en crear una pequeña aplicación en react, con Redux, que maneje Posts.
+## El trabajo consiste en crear una pequeña aplicación en react, con Redux, que maneje Posts.
 
 Los Posts deben tener:
 
@@ -12,7 +12,7 @@ Buenas prácticas:
 - JSON camel-case
 - JS camel-case
 
-Funcionalidades aplicación web hecha con React y Redux
+Funcionalidades aplicación web hecha con React y Redux:
 
 - Insertar posts
 - Eliminar posts

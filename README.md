@@ -1,6 +1,8 @@
 # Project ReactNode Challenge
 
-## El trabajo consiste en crear una pequeña aplicación en react, con Redux, que maneje Posts.
+### Description
+
+El trabajo consiste en crear una pequeña aplicación en react, con Redux, que maneje Posts.
 
 Los Posts deben tener:
 
@@ -33,3 +35,7 @@ Backend (API JSON) en Node.js:
 - BD en postgreSQL
 
 Solo se debe llamar al endpoint que entrega la lista completa de posts una sola vez por cada vez que se cargue la vista.
+
+### Visual Sample
+
+![visual sample](/readme.png)

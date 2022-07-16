@@ -11,7 +11,7 @@ const App = () => {
   const posts = useSelector((state: RootState) => state.posts);
 
   return (
-    <div>
+    <div className="container">
       <h1>Hello World</h1>
       <h2>{posts.value}</h2>
       <button onClick={() => dispatch(increment())}>+1</button>

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "@comment scripts": [
-    "start: react needs WATCHPACK_POLLING=true to listen files in docker"
+    "start: react needs WATCHPACK_POLLING=true and WDS_SOCKET_PORT=0 to listen files and hotreload in docker"
   ],
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
@@ -26,7 +26,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "WATCHPACK_POLLING=true react-scripts start",
+    "start": "WATCHPACK_POLLING=true WDS_SOCKET_PORT=0 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

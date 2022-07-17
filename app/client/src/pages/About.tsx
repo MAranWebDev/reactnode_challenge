@@ -2,7 +2,7 @@ import { Body } from "../components/Layout/Body";
 
 const About = () => {
   return (
-    <Body title="Sobre nosotros">
+    <Body title="Sobre Nosotros">
       <main className="container my-5">
         <h1>Sobre este proyecto:</h1>
         <p>

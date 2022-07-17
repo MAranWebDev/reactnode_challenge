@@ -1,5 +1,13 @@
 # Project ReactNode Challenge
 
+## Commands
+
+docker compose up -d app
+docker exec --user=node reactnode_server_1 bash -c "npm run migrate:latest"
+docker exec --user=node reactnode_server_1 bash -c "npm run migrate:rollback"
+docker compose down
+docker compose down -v
+
 ## Instructions (original source in spanish)
 
 #### Descripción

@@ -1,15 +1,15 @@
 import { Knex } from "knex";
 
-const POSTS_TABLE = "posts";
+const TABLE = "posts";
 
 export async function up(knex: Knex): Promise<void> {
-  await knex.schema.createTable(POSTS_TABLE, (table: Knex.TableBuilder) => {
+  await knex.schema.createTable(TABLE, (table: Knex.TableBuilder) => {
     table.increments();
-    table.string("post_name").notNullable();
-    table.string("post_description").notNullable();
+    table.string("name").notNullable();
+    table.string("description").notNullable();
   });
 }
 
 export async function down(knex: Knex): Promise<void> {
-  await knex.schema.dropTable(POSTS_TABLE);
+  await knex.schema.dropTable(TABLE);
 }

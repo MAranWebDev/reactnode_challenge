@@ -1,6 +1,5 @@
 const expressError = (message: any, statusCode: number) => {
-  const props = { message, statusCode };
-  return Object.assign(props, Error);
+  return { message, statusCode, ...Error };
 };
 
 export { expressError };

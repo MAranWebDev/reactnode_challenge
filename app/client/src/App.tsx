@@ -1,18 +1,17 @@
-import type { RootState } from "./redux/store";
-import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment } from "./redux/slices/postsSlice";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { NotFound } from "./pages/NotFound";
+import { Home } from "./pages/Home";
+import { About } from "./pages/About";
 
 const App = () => {
-  const dispatch = useDispatch();
-  const posts = useSelector((state: RootState) => state.posts);
-
   return (
-    <div className="container">
-      <h1>Hello World</h1>
-      <h2>{posts.value}</h2>
-      <button onClick={() => dispatch(increment())}>+1</button>
-      <button onClick={() => dispatch(decrement())}>-1</button>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

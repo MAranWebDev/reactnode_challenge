@@ -1,5 +1,5 @@
 services:
-  # launcher
+  ## launcher
   app:
     image: nginx:${VER_NGINX}
     restart: unless-stopped
@@ -55,7 +55,7 @@ services:
       - /usr/src/app/build
       - ./app/client:/usr/src/app
 
-  # devtools: server
+  ## devtools: server
   npm-ser:
     image: node:${VER_NODE}
     volumes:
@@ -64,7 +64,7 @@ services:
     working_dir: /usr/src/app
     entrypoint: [ 'npm' ]
 
-  # devtools: client
+  ## devtools: client
   npm-cli:
     image: node:${VER_NODE}
     volumes:

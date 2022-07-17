@@ -1,20 +1,20 @@
-# get image
+## get image
 ARG VER_NODE
 FROM node:$VER_NODE
 
-# install dependencies
+## install dependencies
 ARG FOLDER
 WORKDIR /usr/src
 COPY ./app/$FOLDER/package*.json ./
 RUN npm ci
 ENV PATH /usr/src/node_modules/.bin:$PATH
 
-# bundle source
+## bundle source
 WORKDIR /usr/src/app
 COPY ./app/$FOLDER ./
 
-# build
+## build
 RUN npm run build
 
-# start app
+## start app
 CMD [ "npm", "run", "init" ]

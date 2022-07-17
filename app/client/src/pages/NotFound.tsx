@@ -1,8 +1,10 @@
+import { Body } from "../components/Layout/Body";
+
 const NotFound = () => {
   return (
-    <div>
+    <Body title="Not Found">
       <h1>404 Not Found</h1>
-    </div>
+    </Body>
   );
 };
 

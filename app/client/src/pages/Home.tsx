@@ -1,8 +1,10 @@
+import { Body } from "../components/Layout/Body";
+
 const Home = () => {
   return (
-    <div>
+    <Body title="Home">
       <h1>Home</h1>
-    </div>
+    </Body>
   );
 };
 

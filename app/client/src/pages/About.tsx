@@ -1,8 +1,10 @@
+import { Body } from "../components/Layout/Body";
+
 const About = () => {
   return (
-    <div>
+    <Body title="About">
       <h1>About</h1>
-    </div>
+    </Body>
   );
 };
 

@@ -9,6 +9,7 @@ services:
       - ./config/nginx_custom.conf:/etc/nginx/conf.d/custom.conf
     depends_on:
       - db
+      - server
       - client
 
   db:

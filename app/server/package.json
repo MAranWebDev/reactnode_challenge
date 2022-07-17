@@ -15,15 +15,13 @@
     "build": "rm -rf build && npm run tsc",
     "init": "NODE_ENV=production node build/index.js",
     "knexfile": "knex --knexfile src/db/knexfile.ts",
-    "knex:reset": "npm run migrate:rollback && npm run migrate:latest && npm run seed:run",
+    "knex:reset": "npm run migrate:rollback && npm run migrate:latest",
     "migrate:make": "npm run knexfile migrate:make",
     "migrate:rollback": "npm run knexfile migrate:rollback",
     "migrate:latest": "npm run knexfile migrate:latest",
     "migrate:list": "npm run knexfile migrate:list",
     "migrate:up": "npm run knexfile migrate:up",
-    "migrate:down": "npm run knexfile migrate:down",
-    "seed:make": "npm run knexfile seed:make",
-    "seed:run": "npm run knexfile seed:run"
+    "migrate:down": "npm run knexfile migrate:down"
   },
   "keywords": [],
   "author": "",

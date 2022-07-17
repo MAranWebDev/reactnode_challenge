@@ -10,7 +10,7 @@ type BodyType = {
 
 const Body = ({
   children,
-  title = "App | react.js",
+  title = "Posts App",
   blank,
 }: React.PropsWithChildren<BodyType>) => {
   return (

@@ -1,18 +1,26 @@
 # Project ReactNode Challenge
 
-## Commands
+Nota: Sólo este archivo estará en español para su mayor entendimiento.
 
-docker compose up -d app
-docker exec --user=node reactnode_server_1 bash -c "npm run migrate:latest"
-docker exec --user=node reactnode_server_1 bash -c "npm run migrate:rollback"
-docker compose down
-docker compose down -v
+## Uso
 
-## Instructions (original source in spanish)
+- descarga, instala y arranca docker desktop: https://www.docker.com/get-started/
+- link: http://localhost/
+- prueba la aplicación con los siguientes comandos:
+
+      iniciar app - `docker-compose up -d app`
+
+      crear base de datos - `docker exec --user=node reactnode_server_1 bash -c "npm run migrate:latest"`
+
+      detener app - `docker-compose down`
+
+      destruir app - `docker-compose down -v`
+
+## Requerimientos
 
 #### Descripción
 
-El trabajo consiste en crear una pequeña aplicación en react, con Redux, que maneje Posts.
+ok - El trabajo consiste en crear una pequeña aplicación en react, con Redux, que maneje Posts.
 IMPORTANTE: Solo se debe llamar al endpoint que entrega la lista completa de posts una sola vez por cada vez que se cargue la vista.
 
 #### Ejemplo Visual
@@ -21,13 +29,13 @@ IMPORTANTE: Solo se debe llamar al endpoint que entrega la lista completa de pos
 
 #### Los Posts deben tener
 
-- Nombre
-- Descrpición
+ok - Nombre
+ok - Descrpición
 
 #### Buenas prácticas
 
-- JSON camel-case
-- JS camel-case
+ok - JSON camel-case
+ok - JS camel-case
 
 #### Funcionalidades aplicación web hecha con React y Redux
 
@@ -44,7 +52,7 @@ IMPORTANTE: Solo se debe llamar al endpoint que entrega la lista completa de pos
 
 #### Backend (API JSON) en Node.js
 
-- Crear posts: Deberá retornar el post creado
-- Eliminar posts: Deberá retornar el post eliminado
-- Obtener lista de posts: Deberá retornar todos los posts
-- BD en postgreSQL
+ok - Crear posts: Deberá retornar el post creado
+ok - Eliminar posts: Deberá retornar el post eliminado
+ok - Obtener lista de posts: Deberá retornar todos los posts
+ok - BD en postgreSQL

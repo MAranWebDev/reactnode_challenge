@@ -26,10 +26,10 @@ services:
   server:
     build:
       context: ./
-      dockerfile: docker/node_${MODE}.dockerfile
+      dockerfile: docker/${DOCKERFILE_SERVER}.dockerfile
       args:
-        - SERVICE=server
-        - VERSION=${VER_NODE}
+        FOLDER: server
+        VER_NODE: ${VER_NODE}
     restart: unless-stopped
     expose:
       - 5000
@@ -42,11 +42,11 @@ services:
   client:
     build:
       context: ./
-      dockerfile: docker/react_${MODE}.dockerfile
+      dockerfile: docker/${DOCKERFILE_CLIENT}.dockerfile
       args:
         FOLDER: client
-        VER_NGINX: ${VER_NGINX}
         VER_NODE: ${VER_NODE}
+        VER_NGINX: ${VER_NGINX}
     restart: unless-stopped
     expose:
       - 3000

@@ -1,19 +1,20 @@
-## get image
+# get image
 ARG VER_NODE
 FROM node:$VER_NODE
 
-## arguments: they need to be declared after FROM in order to work
+# install dependencies
 ARG FOLDER
-
-## install dependencies
 WORKDIR /usr/src
 COPY ./app/$FOLDER/package*.json ./
 RUN npm ci
 ENV PATH /usr/src/node_modules/.bin:$PATH
 
-## bundle source
+# bundle source
 WORKDIR /usr/src/app
 COPY ./app/$FOLDER ./
 
-## start app
-CMD [ "npm", "start"]
+# build
+RUN npm run build
+
+# start app
+CMD [ "npm", "run", "init" ]

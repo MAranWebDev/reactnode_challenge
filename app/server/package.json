@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "@comment scripts": [
-    "nodemon: nodemon needs -L to listen files in docker",
+    "start nodemon needs -L to listen files in docker",
     "tsc: you need to declare tsc command before using it in the build command",
     "init: you need to declare env NODE_ENV=production for best performance",
     "knexfile: needed to find the correct knexfile to run migrations"
   ],
   "scripts": {
-    "dev": "nodemon -L src/index.ts",
+    "start": "nodemon -L src/index.ts",
     "tsc": "tsc",
     "build": "rm -rf build && npm run tsc",
     "init": "NODE_ENV=production node build/index.js",

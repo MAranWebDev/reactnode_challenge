@@ -1,6 +1,6 @@
 # Project ReactNode Challenge
 
-## Instrucciones
+## Instructions (original source in spanish)
 
 #### Descripción
 

@@ -1,0 +1,7 @@
+## WARNING: This file stop deployment errors for node containers by preventing the "COPY". It needs to be in the context directory to work!
+# critical folders
+app/*/build
+app/*/node_modules
+
+# git files
+app/*/.git*

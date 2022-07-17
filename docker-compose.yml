@@ -1,0 +1,78 @@
+services:
+  # launcher
+  app:
+    image: nginx:${VER_NGINX}
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./config/nginx_custom.conf:/etc/nginx/conf.d/custom.conf
+    depends_on:
+      - db
+      - client
+
+  db:
+    image: postgres:${VER_POSTGRES}
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+
+  server:
+    build:
+      context: ./
+      dockerfile: docker/node_${MODE}.dockerfile
+      args:
+        - SERVICE=server
+        - VERSION=${VER_NODE}
+    restart: unless-stopped
+    expose:
+      - 5000
+    volumes:
+      - modules_server:/usr/src/app/node_modules
+      - /usr/src/app/build
+      - ./app/server:/usr/src/app
+    env_file: .env
+
+  client:
+    build:
+      context: ./
+      dockerfile: docker/react_${MODE}.dockerfile
+      args:
+        FOLDER: client
+        VER_NGINX: ${VER_NGINX}
+        VER_NODE: ${VER_NODE}
+    restart: unless-stopped
+    expose:
+      - 3000
+    volumes:
+      - modules_client:/usr/src/app/node_modules
+      - /usr/src/app/build
+      - ./app/client:/usr/src/app
+
+  # devtools: server
+  npm-ser:
+    image: node:${VER_NODE}
+    volumes:
+      - ./app/server:/usr/src/app
+    env_file: .env
+    working_dir: /usr/src/app
+    entrypoint: [ 'npm' ]
+
+  # devtools: client
+  npm-cli:
+    image: node:${VER_NODE}
+    volumes:
+      - ./app/client:/usr/src/app
+    working_dir: /usr/src/app
+    entrypoint: [ 'npm' ]
+
+volumes:
+  db_data: {}
+  modules_server: {}
+  modules_client: {}

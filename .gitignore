@@ -1,3 +1,2 @@
-## Keep environment variables out of version control
+## keep environment variables out of version control
 .env
-helpers

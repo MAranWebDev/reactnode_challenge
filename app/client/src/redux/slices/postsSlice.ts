@@ -1,6 +1,13 @@
 import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState = { filter: "", name: "", description: "" };
+type PostsType = { id: string; name: string; description: string }[];
+
+const initialState = {
+  filter: "",
+  name: "",
+  description: "",
+  posts: [] as PostsType,
+};
 
 const postsSlice = createSlice({
   name: "posts",
@@ -15,10 +22,13 @@ const postsSlice = createSlice({
     setDescription: (state, action: PayloadAction<string>) => {
       state.description = action.payload;
     },
+    setPosts: (state, action: PayloadAction<PostsType>) => {
+      state.posts = action.payload;
+    },
   },
 });
 
 const postsReducer = postsSlice.reducer;
-const { setFilter, setName, setDescription } = postsSlice.actions;
+const { setFilter, setName, setDescription, setPosts } = postsSlice.actions;
 
-export { postsReducer, setFilter, setName, setDescription };
+export { postsReducer, setFilter, setName, setDescription, setPosts };

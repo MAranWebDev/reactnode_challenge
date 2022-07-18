@@ -21,7 +21,10 @@ const Home = () => {
       <main className="container my-5">
         {/* filter */}
         <section>
-          <form onSubmit={handleFilter}>
+          <form
+            onSubmit={handleFilter}
+            className="d-flex justify-content-between"
+          >
             <input
               type="text"
               placeholder="Filtro de Nombre"
@@ -55,21 +58,27 @@ const Home = () => {
         </section>
 
         {/* create */}
-        <section>
-          <form onSubmit={handleCreate}>
-            <input
-              type="text"
-              placeholder="Nombre"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Descripción"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <input type="submit" value="Crear" />
+        <section className="text-center">
+          <form onSubmit={handleCreate} className="row g-3 justify-content-end">
+            <div className="col-auto">
+              <input
+                type="text"
+                placeholder="Nombre"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="col-auto">
+              <input
+                type="text"
+                placeholder="Descripción"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+            <div className="col-auto">
+              <input type="submit" value="Crear" />
+            </div>
           </form>
         </section>
       </main>

@@ -12,16 +12,14 @@ Nota: Sólo este archivo estará en español para su mayor entendimiento.
 
       crear base de datos - `docker exec --user=node reactnode_server_1 bash -c "npm run migrate:latest"`
 
-      detener app - `docker-compose down`
-
       destruir app - `docker-compose down -v`
 
 ## Requerimientos
 
 #### Descripción
 
-ok - El trabajo consiste en crear una pequeña aplicación en react, con Redux, que maneje Posts.
-IMPORTANTE: Solo se debe llamar al endpoint que entrega la lista completa de posts una sola vez por cada vez que se cargue la vista.
+- El trabajo consiste en crear una pequeña aplicación en react, con Redux, que maneje Posts.
+- IMPORTANTE: Solo se debe llamar al endpoint que entrega la lista completa de posts una sola vez por cada vez que se cargue la vista.
 
 #### Ejemplo Visual
 
@@ -29,30 +27,30 @@ IMPORTANTE: Solo se debe llamar al endpoint que entrega la lista completa de pos
 
 #### Los Posts deben tener
 
-ok - Nombre
-ok - Descrpición
+- Nombre
+- Descrpición
 
 #### Buenas prácticas
 
-ok - JSON camel-case
-ok - JS camel-case
+- JSON camel-case
+- JS camel-case
 
 #### Funcionalidades aplicación web hecha con React y Redux
 
-ok - Insertar posts
-ok - Eliminar posts
-ok - Listar posts
-ok - Filtrar posts por nombre localmente
+- Insertar posts
+- Eliminar posts
+- Listar posts
+- Filtrar posts por nombre localmente
 
 #### Estructura
 
-ok - Formulario
-ok - Filtro
-ok - Lista
+- Formulario
+- Filtro
+- Lista
 
 #### Backend (API JSON) en Node.js
 
-ok - Crear posts: Deberá retornar el post creado
-ok - Eliminar posts: Deberá retornar el post eliminado
-ok - Obtener lista de posts: Deberá retornar todos los posts
-ok - BD en postgreSQL
+- Crear posts: Deberá retornar el post creado
+- Eliminar posts: Deberá retornar el post eliminado
+- Obtener lista de posts: Deberá retornar todos los posts
+- BD en postgreSQL

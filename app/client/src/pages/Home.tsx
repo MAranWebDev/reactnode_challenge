@@ -1,25 +1,31 @@
-import { type FormEvent, useState } from "react";
-import { useFetch } from "../hooks/useFetch";
+import { type FormEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../redux/store";
+import { setFilter, setName, setDescription } from "../redux/slices/postsSlice";
+import {
+  usePostsQuery,
+  useCreatePostMutation,
+  useDeletePostMutation,
+} from "../redux/services/postsApi";
 import { Body } from "../components/Layout/Body";
 
 const Home = () => {
-  const [filterName, setFilterName] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [posts, filterPosts, createPost, deletePost] = useFetch();
+  const dispatch = useDispatch();
+  const posts = useSelector((state: RootState) => state.posts);
+  const { data, error, isLoading, isSuccess } = usePostsQuery("");
+  const [createPost] = useCreatePostMutation();
+  const [deletePost] = useDeletePostMutation();
 
   const handleFilter = (e: FormEvent) => {
     e.preventDefault();
-    filterPosts(filterName);
-    setFilterName("");
   };
 
   const handleCreate = (e: FormEvent) => {
     e.preventDefault();
-    if (name.trim() === "" || description.trim() === "") return;
-    createPost(name, description);
-    setName("");
-    setDescription("");
+    if (posts.name.trim() === "" || posts.description.trim() === "") return;
+    createPost({ name: posts.name, description: posts.description });
+    dispatch(setName(""));
+    dispatch(setDescription(""));
   };
 
   return (
@@ -34,8 +40,8 @@ const Home = () => {
             <input
               type="text"
               placeholder="Filtro de Nombre"
-              value={filterName}
-              onChange={(e) => setFilterName(e.target.value)}
+              value={posts.filter}
+              onChange={(e) => dispatch(setFilter(e.target.value))}
             />
             <input type="submit" value="Buscar" />
           </form>
@@ -52,7 +58,7 @@ const Home = () => {
               </tr>
             </thead>
             <tbody>
-              {posts.map(({ id, name, description }) => (
+              {data?.map(({ id, name, description }) => (
                 <tr key={id}>
                   <td>{name}</td>
                   <td>{description}</td>
@@ -77,16 +83,16 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="Nombre"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={posts.name}
+                onChange={(e) => dispatch(setName(e.target.value))}
               />
             </div>
             <div className="col-auto">
               <input
                 type="text"
                 placeholder="Descripción"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                value={posts.description}
+                onChange={(e) => dispatch(setDescription(e.target.value))}
               />
             </div>
             <div className="col-auto">

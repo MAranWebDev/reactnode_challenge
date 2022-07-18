@@ -1,24 +1,24 @@
 import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  value: 0,
-};
+const initialState = { filter: "", name: "", description: "" };
 
 const postsSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    setFilter: (state, action: PayloadAction<string>) => {
+      state.filter = action.payload;
     },
-    decrement: (state) => {
-      state.value -= 1;
+    setName: (state, action: PayloadAction<string>) => {
+      state.name = action.payload;
     },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    setDescription: (state, action: PayloadAction<string>) => {
+      state.description = action.payload;
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = postsSlice.actions;
-export const postsReducer = postsSlice.reducer;
+const postsReducer = postsSlice.reducer;
+const { setFilter, setName, setDescription } = postsSlice.actions;
+
+export { postsReducer, setFilter, setName, setDescription };

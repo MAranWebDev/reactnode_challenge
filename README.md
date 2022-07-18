@@ -8,11 +8,11 @@ Nota: Sólo este archivo estará en español para su mayor entendimiento.
 - link: http://localhost/
 - prueba la aplicación con los siguientes comandos:
 
-      iniciar app - `docker-compose up -d app`
+      iniciar app - ` docker-compose up -d app `
 
-      crear base de datos - `docker exec --user=node reactnode_server_1 bash -c "npm run migrate:latest"`
+      crear base de datos - ` docker exec --user=node reactnode_server_1 bash -c "npm run migrate:latest" `
 
-      destruir app - `docker-compose down -v`
+      destruir app - ` docker-compose down -v `
 
 ## Requerimientos
 

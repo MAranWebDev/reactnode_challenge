@@ -1,19 +1,25 @@
 import { type FormEvent, useState } from "react";
+import { useFetch } from "../hooks/useFetch";
 import { Body } from "../components/Layout/Body";
 
 const Home = () => {
   const [filterName, setFilterName] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [posts, filterPosts, createPost, deletePost] = useFetch();
 
   const handleFilter = (e: FormEvent) => {
     e.preventDefault();
-    if (filterName.trim() === "") return;
+    filterPosts(filterName);
+    setFilterName("");
   };
 
   const handleCreate = (e: FormEvent) => {
     e.preventDefault();
     if (name.trim() === "" || description.trim() === "") return;
+    createPost(name, description);
+    setName("");
+    setDescription("");
   };
 
   return (
@@ -22,8 +28,8 @@ const Home = () => {
         {/* filter */}
         <section>
           <form
-            onSubmit={handleFilter}
             className="d-flex justify-content-between"
+            onSubmit={handleFilter}
           >
             <input
               type="text"
@@ -46,13 +52,20 @@ const Home = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>POST 1</td>
-                <td>Hola como están</td>
-                <td>
-                  <button className="btn btn-outline-danger">Eliminar</button>
-                </td>
-              </tr>
+              {posts.map(({ id, name, description }) => (
+                <tr key={id}>
+                  <td>{name}</td>
+                  <td>{description}</td>
+                  <td>
+                    <button
+                      className="btn btn-outline-danger"
+                      onClick={() => deletePost(id)}
+                    >
+                      Eliminar
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </section>

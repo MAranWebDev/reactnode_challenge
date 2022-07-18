@@ -39,16 +39,16 @@ ok - JS camel-case
 
 #### Funcionalidades aplicación web hecha con React y Redux
 
-- Insertar posts
-- Eliminar posts
-- Listar posts
-- Filtrar posts por nombre localmente
+ok - Insertar posts
+ok - Eliminar posts
+ok - Listar posts
+ok - Filtrar posts por nombre localmente
 
 #### Estructura
 
-- Formulario
-- Filtro
-- Lista
+ok - Formulario
+ok - Filtro
+ok - Lista
 
 #### Backend (API JSON) en Node.js
 

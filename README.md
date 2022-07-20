@@ -5,7 +5,8 @@ Nota: Sólo este archivo estará en español para su mayor entendimiento.
 ## Uso
 
 - descarga, instala y arranca docker desktop: https://www.docker.com/get-started/
-- link: http://localhost/
+- link client: http://localhost/
+- link api: http://localhost/api/posts
 - prueba la aplicación con los siguientes comandos:
 
       iniciar app - ` docker-compose up -d app `

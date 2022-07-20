@@ -55,6 +55,7 @@ services:
       - modules_client:/usr/src/app/node_modules
       - /usr/src/app/build
       - ./app/client:/usr/src/app
+      - ./config/nginx_client.conf:/etc/nginx/conf.d/custom.conf
 
   ## devtools: server
   npm-ser:

@@ -36,15 +36,15 @@ const Home = () => {
   const handleFilter = (e: FormEvent) => {
     e.preventDefault();
     if (!data) return;
-    if (filter.trim() === "") return dispatch(setPosts(data));
-    dispatch(setPosts(data.filter(({ name }) => name === filter)));
+    if (filter.trim() === "") dispatch(setPosts(data));
+    else dispatch(setPosts(data.filter(({ name }) => name === filter)));
     resetValues();
   };
 
   const handleCreate = (e: FormEvent) => {
     e.preventDefault();
     if (name.trim() === "" || description.trim() === "") return;
-    createPost({ name, description });
+    createPost({ name: name.trim(), description: description.trim() });
     resetValues();
   };
 

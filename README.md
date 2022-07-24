@@ -1,12 +1,10 @@
-# Project ReactNode Challenge
-
-Nota: Sólo este archivo estará en español para su mayor entendimiento.
+# Project Post App
 
 ## Uso
 
-- descarga, instala y arranca docker desktop: https://www.docker.com/get-started/
 - link client: http://localhost/
 - link api: http://localhost/api/posts
+- descarga, instala y arranca docker desktop: https://www.docker.com/get-started/
 - prueba la aplicación con los siguientes comandos:
 
       iniciar app - ` docker-compose up -d app `
@@ -20,7 +18,7 @@ Nota: Sólo este archivo estará en español para su mayor entendimiento.
 #### Descripción
 
 - El trabajo consiste en crear una pequeña aplicación en react, con Redux, que maneje Posts.
-- IMPORTANTE: Solo se debe llamar al endpoint que entrega la lista completa de posts una sola vez por cada vez que se cargue la vista.
+- Sólo se debe llamar al endpoint que entrega la lista completa de posts una sola vez por cada vez que se cargue la vista.
 
 #### Ejemplo Visual
 
